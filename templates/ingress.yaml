@@ -12,10 +12,10 @@ metadata:
     {{- toYaml . | nindent 4 }}                               # 从 values.yaml 传递 ingress 注解
     {{- end }}
 spec:
-  ingressClassName: {{ .Values.ingress.className }}
+  ingressClassName: {{ .Values.ingress.className }}           # 指定 IngressClass（如 nginx）
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host }}                                       # 域名配置
+    - host: {{ .host }}                                       # 对外访问域名
       http:
         paths:
           {{- range .paths }}
