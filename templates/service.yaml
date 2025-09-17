@@ -8,5 +8,5 @@ spec:
   selector:
     app: {{ .Release.Name }}    
   ports:
-    - port: {{ .Values.service.port }}            # Service 暴露端口
+    - port: {{ .Values.service.port }}            # Service 暴露的端口
       targetPort: 8080                            # Pod 内部 Tomcat 端口
