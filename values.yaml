@@ -112,7 +112,7 @@ httpRoute:
   #       value: /echo
   #     headers:
   #     - name: version
-  #       value: v2
+  #       value: v4
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
