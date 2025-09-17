@@ -3,15 +3,15 @@
 # Declare variables to be passed into your templates.
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
-replicaCount: 3
+replicaCount: 3          # Tomcat 副本数
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: tomcat
+  repository: tomcat     # 镜像仓库
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "latest"          # 使用最新版本
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -54,7 +54,7 @@ service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 8080
+  port: 8080        # Tomcat 默认 HTTP 端口
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -62,8 +62,7 @@ ingress:
   className: "nginx"
   annotations: 
     nginx.ingress.kubernetes.io/proxy-body-size: "2g"       # 允许文件上传最大2G
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"   # 读取超时时间
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "120"   # 发送超时时间
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"   # 代理超时时间 120 秒
 
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"

@@ -4,9 +4,9 @@ metadata:
   name: {{ .Release.Name }}-service
   namespace: my-namespace
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.type }}                # Service 类型 (ClusterIP/NodePort/LoadBalancer)
   selector:
-    app: {{ .Release.Name }}
+    app: {{ .Release.Name }}    
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: 8080
+    - port: {{ .Values.service.port }}            # Service 暴露端口
+      targetPort: 8080                            # Pod 内部 Tomcat 端口

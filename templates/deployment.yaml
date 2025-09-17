@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-deployment
-  namespace: my-namespace   
+  namespace: my-namespace                # 指定命名空间
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount }}   # 副本数从 values.yaml 获取
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: tomcat
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"     # 镜像由 values.yaml 控制
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 8080
+            - containerPort: 8080         # Tomcat 默认端口
