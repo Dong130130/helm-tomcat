@@ -40,7 +40,7 @@
 
 
 ### 2.5 values.yaml
-- 提供关键可配置参数：
+- 修改关键可配置参数：
   - `replicaCount`
   - `image.repository` / `image.tag`
   - `service.port`
