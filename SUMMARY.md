@@ -45,13 +45,13 @@
   - `image.repository` / `image.tag`
   - `service.port`
   - `ingress.hosts` / `ingress.annotations`
-- 说明了 Helm 模板化和可配置化优势。
+- 所有关键参数都可以在 values.yaml 调整，无需修改模板。
 
 ### 2.6 外部访问方法
 - 使用 nginx IngressClass，将服务暴露给集群外部访问。
 - Deployment 对应的 Service 使用 ClusterIP 类型，Ingress 将外部请求路由到该 Service。
 - 本地访问方法：
-  - 将 `my-tomcat.test.com` 映射到 Ingress 控制器的外部 IP（或 minikube / kind 的节点 IP）  
+  - 将 `my-tomcat.test.com` 映射到 Ingress 控制器的外部 IP  
     示例：在 `/etc/hosts` 文件中添加  
     ```
     127.0.0.1  my-tomcat.test.com
